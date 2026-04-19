@@ -26,13 +26,13 @@ def upgrade() -> None:
     sa.Column('sunset', sa.Time(), nullable=True),
     sa.Column('moonrise', sa.Time(), nullable=True),
     sa.Column('moonset', sa.Time(), nullable=True),
-    sa.Column('moon_phase', sa.String(), nullable=True),
+    sa.Column('moon_phase', sa.String(length=255), nullable=True),
     sa.Column('moon_illumination', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('weather',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('country', sa.String(), nullable=True),
+    sa.Column('country', sa.String(length =255), nullable=True),
     sa.Column('last_updated', sa.DateTime(), nullable=True),
     sa.Column('wind_degree', sa.Integer(), nullable=True),
     sa.Column('wind_kph', sa.Float(), nullable=True),

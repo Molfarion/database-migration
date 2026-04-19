@@ -18,7 +18,7 @@ class Weather(Base):
     
     id = Column(Integer, primary_key=True)
     
-    country = Column(String)              
+    country = Column(String(255))              
     last_updated = Column(DateTime)      
     wind_degree = Column(Integer)        
     wind_kph = Column(Float)             
@@ -37,7 +37,7 @@ class CelestialEvents(Base):
     sunset = Column(Time)
     moonrise = Column(Time)
     moonset = Column(Time)
-    moon_phase = Column(String)
+    moon_phase = Column(String(255))
     moon_illumination = Column(Integer)
 
     should_go_outside = Column(Boolean, default=True)
