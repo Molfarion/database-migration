@@ -7,18 +7,17 @@ def parse_time(time_str):
     if not isinstance(time_str, str) or time_str.strip() == "":
         return None
     try:
-        # Обробка формату "06:15 AM"
         return datetime.strptime(time_str.strip(), "%I:%M %p").time()
     except ValueError:
         return None
 
 def run_seed():
     db = SessionLocal()
-    df = pd.read_csv('global_weather_repository.csv')
+    df = pd.read_csv('data/GlobalWeatherRepository.csv')
     
     print("Починаю завантаження даних...")
     
-    for _, row in df.head(100).iterrows():
+    for _, row in df.head(10000).iterrows():
         wind_speed = float(row['wind_kph'])
         illumination = int(row['moon_illumination'])
         
