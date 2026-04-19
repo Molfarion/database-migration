@@ -39,5 +39,7 @@ class CelestialEvents(Base):
     moonset = Column(Time)
     moon_phase = Column(String)
     moon_illumination = Column(Integer)
+
+    should_go_outside = Column(Boolean, default=True)
     
     weather_entry = relationship("Weather", back_populates="celestial")
