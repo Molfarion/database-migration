@@ -15,9 +15,9 @@ def run_seed():
     db = SessionLocal()
     df = pd.read_csv('data/GlobalWeatherRepository.csv')
     
-    print("Починаю завантаження даних...")
+    print("Завантаження даних...")
     
-    for _, row in df.head(10000).iterrows():
+    for _, row in df.head(500).iterrows():
         wind_speed = float(row['wind_kph'])
         illumination = int(row['moon_illumination'])
         
@@ -51,7 +51,7 @@ def run_seed():
 
     try:
         db.commit()
-        print("Успіх: 100 записів додано до бази!")
+        print("Успіх: 500 записів додано до бази!")
     except Exception as e:
         db.rollback()
         print(f"Помилка при збереженні: {e}")
